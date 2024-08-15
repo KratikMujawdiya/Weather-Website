@@ -1,0 +1,134 @@
+<!-- Whether APP:-isme 4 screens aa rhi hai
+
+ *1>pahli screen:- Grant location access vali screen dikh rhi hai ye tab aayegi jab tumhare coordinates browser ke pass nhi hai||jab browser ke local storage ke andar tumhare coordinates available nhi hai tab Grant location access vali screen aayegi
+ 
+ 2>Second screen jha par user ki weather ki information aa rhi hai
+ 
+ 3>Third screen search vali jha par city name daloge to usak weather aayega 
+ 
+ 4>Fourth screen jha Search weather se your weather vali screen par jate ho to "loading" vali screen aati hai
+ 
+ so 4 different-different UI mujhe dikh rhe hai and me kisi ek UI ko visible karaunga at a time 
+ -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Weather Website</title>
+ 
+     <!-- fonts used by google -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+     rel="stylesheet" />
+ 
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+ 
+     <div class="wrapper">
+ 
+          <h1>Weather App</h1>
+ 
+          <!------------------------------------tab-container----------------------------------------->
+ 
+          <div class="tab-container">
+             <p class="tab" data-userWeather>Your Weather</p>
+             <p class="tab" data-searchWeather>Search Weather</p>
+          </div>
+ 
+          <!------------------------------------Weather-container----------------------------------------->
+ 
+          <div class="weather-container">
+ 
+             <!-- grant location container vali screen-->
+             <div class="sub-container grant-location-container">
+                <img src="./WeatherAppImages/location.png" alt="" width="80" height="80" loading="lazy">  
+                <!-- loading lazy means load these only when needed. Load after scrolling -->
+                 <p>Grant Location Access</p>
+                 <p>Allow Access to get Weather Information</p>
+                 <button class="btn" data-grantAccess>Grant Access</button>
+             </div>
+ 
+             <!-- Search form weather vali screen -->
+              <form class="form-container" data-searchForm>
+                 <input placeholder="Search for City..." data-searchInput>
+                 <button class="btn" type="submit" >
+                     <img src="./WeatherAppImages/search.png" width="20" height="20" loading="lazy">
+                 </button>
+              </form>
+ 
+              <!--Case-1:Search_Error: search error vala div github se dekh ke add kiya -->
+              <div class="search_error">
+                <img src="./WeatherAppImages/not-found.png" width="150 rem" height="150 rem">
+                <p>NOT FOUND</p>
+               </div>
+ 
+              <!-- Loading screen container -->
+               <div class="sub-container loading-container">
+                 <img src="./WeatherAppImages/loading.gif" width="150" height="150">
+                 <p>Loading</p>
+               </div>
+ 
+          </div>
+               <!-- Show Weather Information -->
+ 
+               <!-- Ye search and user dono UI me use karna hai iske kyoki dono ka UI same hai -->
+ 
+               <div class="sub-container user-info-container">
+ 
+                 <!-- city name and flag -->
+                 <div class="name">
+                     <p data-cityName></p><!--paragram ka textcontent dynamic hai so ise js se handle karna hai-->
+                     <img data-countryIcon><!--image dynamic hai isliye yha koi image nhi dala and custom attribute dediya ye js se handle karna hai-->
+                 </div>
+ 
+                 <!-- weather description -->
+                 <p data-weatherDesc></p>
+ 
+                  <!-- weather Icon -->
+                 <img data-weatherIcon> <!--Dymaically update karna so src(source) dene ki jarurat nhi hai-->
+ 
+                 <!-- temperature -->
+                 <p data-temp></p>
+ 
+                 <!-- 3 cards-parameters -->
+                  <div class="parameter-container">
+ 
+                     <!-- card-1 -->
+                      <div class="parameter">
+                         <img src="./WeatherAppImages/wind.png">
+                         <p>windspeed</p>
+                         <p data-windspeed></p><!--dynamically value aayegi-->
+                      </div>
+ 
+                     <!-- card-2 -->
+                      <div class="parameter">
+                         <img src="./WeatherAppImages/humidity.png">
+                         <p>humidity</p>
+                         <p data-humidity></p><!--dynamically value aayegi-->
+                      </div>
+ 
+                     <!-- card-3-->
+                      <div class="parameter">
+                         <img src="./WeatherAppImages/cloud.png">
+                         <p>Clouds</p>
+                         <p data-cloudiness></p><!--dynamically value aayegi-->
+                      </div>
+                      
+                  </div>
+ 
+               </div>
+ 
+ 
+          <!-- </div> Ye nhi aayega -->
+ 
+     </div>
+ 
+     <script src="script.js"></script>
+ </body>
+ </html>
+ <!-- https://github.com/eshan-009/Weather_APP/blob/main/index.html -->

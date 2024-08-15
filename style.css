@@ -1,0 +1,260 @@
+*,*::before,*::after {
+    /* befor and after psuedo selector hai unme bhi humne universal selector ka use kiya hai yah so ese likha */
+    margin: 0;/* 2 div tag ya 2 para ya 2 etc ke bich ka gap */
+    padding: 0;/*Padding is used to create space around an element's content, inside of any defined borders.*/
+    box-sizing: border-box;/*If you set box-sizing: border-box; on an element, padding and border are included in the element's width and height: 
+    If you set box-sizing: border-box; on an element, padding and border are included in the width and height:*/
+    font-family: 'Merriweather Sans', sans-serif;
+    /*In CSS, we use the font-family property to specify the font of a text.
+    Note: If the font name is more than one word, it must be in quotation marks, like: "Times New Roman". */
+}
+ /* How to add googl fonts:Love Babbar ne article add kiye hai platform par */
+ :root {
+    /*Yha 4 global variable create kar diye jo designer ne diye */
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+}
+.wrapper{
+    width:100vw;
+    height:100vh;
+    color: var(--colorLight2);/*text white color ka hai*/
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+    /* Angreetool website se hum gradient khud se design kar sakte hai */
+}
+h1 {
+    text-align: center;
+    text-transform:uppercase;
+    padding-top: 20px;
+}
+.tab-container {
+    width:90%;
+    max-width: 550px;/*pahle ye nhi lagaya to to dono tab viewport ke left-right extreme par aa rhe the*//*max width jitni hai ussike andar tab-container rahega*/
+    margin: 0 auto;/*left and right se margin same ho jayega and tab-container center me aa jayega*/
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.tab{
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.75px;
+    padding: 5px 8px;
+    /*top and bottom me:5px ,Left and right me:8px*/
+}
+
+.tab.current-tab{
+    /*Jo bhi current tab hai uspar property apply hogi yha starting me current tab=your weather*/
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 4px;
+}
+.weather-container{
+    margin-block: 4rem;/*margin-block means top and bottom ke margin ko aapne set kar diya-Love Babbar */
+}
+.btn{
+    /*btn class grant access vale btn ke liye hai */
+    all: unset;/*button me jo bhi default styling humko di jati hai usko htana chahte hai to-all: unset;*/
+    /* appearance: none; 
+    border:none;
+    color: white; */
+    /*-en tino property se bhi vo kar sakte hai jo all:unset; se huaaa hai */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: var(--colorDark2);
+    cursor: pointer;
+    padding: 10px 30px;/*top and bottom me:10px ,Left and right me:30px*/
+    margin-bottom: 10px;
+}
+/* sub-container class grant access container and loading container and user wheather ke sath css ke time hi add ki hai */
+.sub-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    /*The align-items property specifies the default alignment for items inside a flexbox or grid container. */
+}
+
+.grant-location-container{
+    /*Ek bar styling ho jaye uske bad display:none; kardo kyoki ye JS handle karega ki isko show karna hai ya hide* and starting me ise hide karna hai so display:none */
+     display:none; 
+}
+
+.grant-location-container.active{
+    /*active class se grant-location-container visible hoga display:flex karne se*/ 
+    display:flex;
+}
+
+/* Iske bad sub-container vali class add ki hai */
+
+.grant-location-container img{
+    margin-bottom: 2rem;
+}
+.grant-location-container p:first-of-type{
+    font-size: 1.75rem;
+    font-weight: 600;/*font weight mota-patla karne ke use hota hai*/ 
+}
+.grant-location-container p:last-of-type{
+    font-size:0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.75px; 
+}
+.loading-container{
+     /*Ek bar styling ho jaye uske bad display:none; kardo kyoki ye JS handle karega ki isko show karna hai ya hide and starting me ise hide karna hai so display:none*/
+    display: none;
+}
+
+.loading-container.active{
+     /*active class se loadingcontainer visible hoga display:flex karne se*/ 
+    display: flex;
+}
+
+.loading-container p{
+    text-transform: uppercase;
+}
+
+/* Iske bad sub-container vali class add ki hai */
+
+.user-info-container{
+    /*Ye hide karne ka tarika hai*/
+    display:none;
+}
+.user-info-container.active{
+    /*Ye visible karne ka tarika hai*/
+    display: flex;
+}
+/* Iske bad sub-container vali class add ki hai */
+/*name me cityNmae and countryIcon hai*/
+.name{
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+.user-info-container p{
+    font-size:1.5rem;
+    font-weight:200;
+}
+
+.user-info-container img{/*isko name vali class(niche likhi hai) se uper likhe taki bad me sabki property same hone par tag se jiski property Change karni hai uski kar paye */
+    width:90px;
+    height:90px;
+}
+
+.name p{
+        font-size:2rem;
+}
+.name img{
+    width: 30px;
+    height:30px;
+    object-fit: contain;
+}
+
+.user-info-container p[data-temp] {
+    font-size:2.75rem;
+    font-weight:700;
+}
+
+.parameter-container{
+    width:90%;
+    display: flex;
+    gap: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.parameter{
+    width:30%;
+    max-width:200px;
+    background-color: rgba(219, 226, 239, 0.5);;
+    border-radius: 5px;
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    gap:5px 0;
+    /* justify-content: space-between; */
+    align-items: center; 
+}   
+
+.parameter img{
+    width:50px;
+    height:50px;
+}
+
+.parameter p:first-of-type{
+    font-size: 1.15rem;
+    font-weight:600;
+    text-transform: uppercase;
+}
+
+.parameter p:last-of-type{
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.form-container{
+    display: none; 
+     width:90%;
+    max-width:550px;
+    margin:0 auto;
+    /* jb active class me flex dalenge tab justify content and align items ka effect aayega */
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px; 
+    margin-bottom: 3rem; 
+}
+
+.form-container.active{
+    display: flex;
+}
+
+.form-container input{
+    all:unset;
+    width: calc(100% - 80px);/*80 px for search button baki bachi sari width input form ko*/
+    height:40px;
+    padding: 0 20px;
+    background-color:rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+}
+
+.form-container input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-container input:focus{
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.form-container .btn {
+    padding:unset;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-bottom:1px;
+}
+/* iske aage ka github se dekh ke add kiya- https://github.com/eshan-009/Weather_APP/blob/main/index.html */
+.search_error{
+    padding-top: 3rem;
+    display: none;
+}
+.search_error.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search_error p{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--colorLight2);
+}
+
+
+
+
